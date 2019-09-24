@@ -13,6 +13,7 @@ var weatherIcon = document.getElementById('weatherIcon');
 // Async Fill Document
 function findWeather() {
     var zip = document.getElementById('zipValue').value;
+    console.log(zip);
     var requestURL = openWeather + zip.toString() + api;
 
     var g = fetch(requestURL)

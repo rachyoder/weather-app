@@ -19,7 +19,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 id="ralewayFont" class="display-4 text-center text-light"><span class="text-dark">Weather</span>App</h1>
+                <h1 id="ralewayFont" class="display-4 text-center text-light"><span class="text-dark">Weather</span>App
+                </h1>
             </div>
         </div>
         <div class="row">
@@ -27,15 +28,28 @@
                 <h5 class="text-muted">Enter Your Zip Code</h5>
                 <div class="row">
                     <div class="col-12">
-                        <div class="form-group">
+                        <div class="input-group">
 
                             <input id="zipValue" class="form-control" type="number" name="zipInput"
-                                placeholder="Enter Zip Code...">
-                            <button id="submitButton" class="btn btn-secondary" type="submit">Submit</button>
-
+                                placeholder="Enter Zip Code..." aria-label="Enter zip code"
+                                aria-describedby="submitButton">
+                            <div class="input-group-append">
+                                <button id="submitButton" class="btn btn-secondary" type="submit">Submit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="toast" role="alert" aria-live="assertive" aria-atomi="true">
+            <div class="toast-header">
+                <strong class="mr-auto">Oops!</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Zip Code is not valid. Please try again.
             </div>
         </div>
         <div class="row">
@@ -56,7 +70,7 @@
                     <div class="card-header text-center">
                         Temperature
                     </div>
-                    <div class="card-body text-center">
+                    <div class="card-body text-center mx-auto">
                         <ul class="list-group list-group-horizontal">
                             <li id="tempFarenheit" class="list-group-item"></li>
                             <li id="tempCelsius" class="list-group-item"></li>
