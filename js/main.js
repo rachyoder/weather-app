@@ -9,14 +9,23 @@ var tempCelsius = document.getElementById('tempCelsius');
 var tempFarenheit = document.getElementById('tempFarenheit');
 var condition = document.getElementById('condition');
 var weatherIcon = document.getElementById('weatherIcon');
+//$('.toast').toast('show');
 
 // Async Fill Document
 function findWeather() {
     var zip = document.getElementById('zipValue').value;
-    console.log(zip);
+    //console.log(zip);
     var requestURL = openWeather + zip.toString() + api;
 
-    var g = fetch(requestURL)
+    var g = fetch(requestURL).then(function(x) {
+        console.log(x.status);
+        if (x.status === 404) {
+            $('.toast').toast('show');
+        } else {
+            $('.toast').toast('hide');
+            return x;
+        }
+    })
         .then(
             function (response) {
                 console.log(response);

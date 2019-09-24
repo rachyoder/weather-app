@@ -2,3 +2,6 @@ html, body {
     background-color: #66ccff;
     font-family: 'Raleway', sans-serif;
 }
+.toast {
+    max-width: 100%;
+}
