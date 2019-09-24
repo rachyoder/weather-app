@@ -21,8 +21,10 @@ function findWeather() {
         console.log(x.status);
         if (x.status === 404) {
             $('.toast').toast('show');
+            $('.card').addClass('d-none');
         } else {
             $('.toast').toast('hide');
+            $('.card').removeClass('d-none');
             return x;
         }
     })
