@@ -9,7 +9,6 @@ var tempCelsius = document.getElementById('tempCelsius');
 var tempFarenheit = document.getElementById('tempFarenheit');
 var condition = document.getElementById('condition');
 var weatherIcon = document.getElementById('weatherIcon');
-//$('.toast').toast('show');
 
 // Async Fill Document
 function findWeather() {
@@ -50,3 +49,8 @@ function findWeather() {
 
 var submit = document.getElementById('submitButton');
 submit.addEventListener('click', findWeather);
+document.addEventListener('keydown', function(e) {
+    if (e.keyCode === 13) {
+        findWeather(e);
+    }
+})
