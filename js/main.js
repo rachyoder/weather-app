@@ -13,9 +13,9 @@ var weatherIcon = document.getElementById('weatherIcon');
 // Async Fill Document
 function findWeather() {
     var zip = document.getElementById('zipValue').value;
-    //console.log(zip);
     var requestURL = openWeather + zip.toString() + api;
 
+    // Get JSON and check if valid
     var g = fetch(requestURL).then(function(x) {
         console.log(x.status);
         if (x.status === 404) {
@@ -33,6 +33,7 @@ function findWeather() {
                 return response.json();
             }
         )
+        // Fill in HTML with Weather Info
         .then(function (weatherData) {
             self.loc.innerHTML = weatherData.name;
             var tempStore = Math.round(weatherData.main.temp);
@@ -47,10 +48,11 @@ function findWeather() {
         });
 }
 
+// Use Enter to key to submit
 var submit = document.getElementById('submitButton');
 submit.addEventListener('click', findWeather);
 document.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) {
-        findWeather(e);
+        findWeather();
     }
 })
